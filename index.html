@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/reset.css" media="screen" title="no title">
+    <link rel="stylesheet" href="css/bootstrap.css" media="screen" title="no title">
+    <link rel="stylesheet" href="css/bootstrap-radio.css" media="screen" title="no title">
+    <link rel="stylesheet" href="css/stylesheet.css" media="screen" title="no title">
+
+    <script src='js/tmpl.js'></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <script type="text/html" id='content'>
+            <% for (var i = 0; i < data.length; i++) { %>
+                <div class="funkyradio">
+                    <p><%= data[i].question %></p>
+                    <% for (var j = 0; j < data[i].answers.length; j++) { %>
+                        <div class="funkyradio-primary">
+                            <input type="radio" id="<%= 'radio' + [i] + [j] %>" name="<%= 'radio' + [i] %>" class="check">
+                            <label for="<%= 'radio' + [i] + [j] %>"> <%= data[i].answers[j].text %> </label>
+                        </div>
+                    <% } %>
+                </div>
+            <% }; %>
+            <input type="submit" class="btn btn-primary" id="result-on-click" value="Узнать результаты">
+        </script>
+        <h1>Тест по программированию!</h1>
+        <form action="#" class="test-wrapper"></form>
+        <div class="modal-window">
+            <div class="modal-wrapper">
+                <p class="result"></p>
+                <input type="submit" class="btn btn-primary" id="modal-close" value="Пройти тест еще раз!">
+                <div class="close-btn"><span>X</span></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src='js/script.js'></script>
+</body>
+</html>
